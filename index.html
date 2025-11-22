@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NOIR / LUXE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;600;800&family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Manrope', 'sans-serif'],
+              display: ['Oswald', 'sans-serif'],
+            },
+            colors: {
+              'neon-volt': '#ccff00',
+              'deep-black': '#050505',
+              'off-white': '#f0f0f0',
+              'glass': 'rgba(255, 255, 255, 0.05)',
+            },
+            backgroundImage: {
+              'noise': "url('https://grainy-gradients.vercel.app/noise.svg')",
+            },
+            animation: {
+              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'marquee': 'marquee 25s linear infinite',
+            },
+            keyframes: {
+              marquee: {
+                '0%': { transform: 'translateX(0%)' },
+                '100%': { transform: 'translateX(-100%)' },
+              }
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+      body {
+        background-color: #050505;
+        color: #f0f0f0;
+        cursor: none; /* Custom cursor implementation */
+        overflow-x: hidden;
+      }
+      
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #050505;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #333;
+        border-radius: 3px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #ccff00;
+      }
+
+      .text-stroke {
+        -webkit-text-stroke: 1px rgba(255,255,255,0.2);
+        color: transparent;
+      }
+      
+      .text-stroke-hover:hover {
+        -webkit-text-stroke: 0px;
+        color: #ccff00;
+      }
+
+      /* Utility for hiding elements until visible */
+      .reveal-on-scroll {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .reveal-on-scroll.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      
+      /* Cursor Styles */
+      .cursor-dot,
+      .cursor-outline {
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        z-index: 9999;
+        pointer-events: none;
+      }
+      .cursor-dot {
+        width: 8px;
+        height: 8px;
+        background-color: #ccff00;
+      }
+      .cursor-outline {
+        width: 40px;
+        height: 40px;
+        border: 1px solid rgba(204, 255, 0, 0.5);
+        transition: width 0.2s, height 0.2s, background-color 0.2s;
+      }
+      body:hover .cursor-outline.hovered {
+        width: 80px;
+        height: 80px;
+        background-color: rgba(204, 255, 0, 0.1);
+        border-color: #ccff00;
+        backdrop-filter: blur(2px);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+    <!-- Custom Cursor Scripts handled in React -->
+  </body>
+</html>
